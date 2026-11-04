@@ -1,0 +1,34 @@
+AUTOPATCH ROADMAP — stage status (evidence in git history / test suite)
+
+Stage 1 — Structure-aware context            DONE
+  autopatch/context.py: AST (Python) / brace-scan (JS) enclosing-definition
+  spans; files >400 lines are patched by snippet splice, rest of file kept
+  byte-for-byte. Evidence: tests/test_context.py (incl. 450-line file where
+  the prompt provably does not contain the whole file).
+
+Stage 2 — Measured CWE catalogue             DONE (small corpus, labelled)
+  autopatch/catalogue.py + benchmarks/{corpus,run.py,results.json}.
+  Measured verified-fix rate: offline 5/8, live (Meta API) 8/8 on an 8-case corpus
+  (SQLi x3, path traversal, dependency CVE, command injection, XSS x2 incl. JS).
+  Optional 4th gate (rescan = true): Semgrep must no longer report the alert.
+  `autopatch catalogue` prints the measured numbers, never promises.
+
+Stage 3 — Isolation & loud failures          DONE
+  git worktree branch creation (live tree untouched), sandbox env scrub
+  (secrets never reach repo test processes), Docker image for a real
+  boundary, LLM/API/push failures surface as status/report fields instead
+  of silent None. Evidence: tests/test_isolation.py, tests/test_product.py
+  (env scrub, baseline gate), offline Docker demo run.
+
+Stage 4 — Honest packaging                   DONE
+  Installable pyproject (build-system, metadata, MIT), single-source
+  version, GitHub Action + CI workflow, README claims == shipped behavior
+  (Alpha status, webhook receiver labelled as not-yet-a-GitHub-App,
+  benchmark size disclosed). Verified by clean-venv `pip install .`.
+
+NOT YET (next stages, deliberately not claimed)
+  - Multi-tenant hosted GitHub App (installation tokens, queue, dashboard)
+  - Automatic SARIF upload (file emission via --sarif-out is done)
+  - Larger public benchmark corpus; Go/Java runners
+  - Real-world validation so far: replayr home-reader component
+    (1 Semgrep alert -> verified fix branch against its 124-test suite).

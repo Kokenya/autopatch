@@ -1,0 +1,11 @@
+[
+  {
+    "id": "b2",
+    "rule": "py/sql-injection",
+    "severity": "critical",
+    "file": "app.py",
+    "line": 9,
+    "message": "%-format SQL",
+    "cwe": "CWE-89"
+  }
+]

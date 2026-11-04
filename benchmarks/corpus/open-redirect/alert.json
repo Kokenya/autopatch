@@ -1,0 +1,11 @@
+[
+  {
+    "id": "b9",
+    "rule": "py/url-redirection",
+    "severity": "high",
+    "file": "app.py",
+    "line": 2,
+    "message": "startswith('/') admits protocol-relative //evil URLs",
+    "cwe": "CWE-601"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "id": "b11",
+    "rule": "py/url-redirection",
+    "severity": "medium",
+    "file": "app.py",
+    "line": 4,
+    "message": "redirect target from user input (already netloc-checked)",
+    "cwe": "CWE-601"
+  }
+]

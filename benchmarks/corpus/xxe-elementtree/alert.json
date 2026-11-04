@@ -1,0 +1,11 @@
+[
+  {
+    "id": "b10",
+    "rule": "py/xml/external-entity-expansion",
+    "severity": "high",
+    "file": "app.py",
+    "line": 5,
+    "message": "stdlib XML parser expands entities (XXE / billion laughs)",
+    "cwe": "CWE-611"
+  }
+]

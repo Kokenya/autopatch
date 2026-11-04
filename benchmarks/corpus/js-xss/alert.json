@@ -1,0 +1,11 @@
+[
+  {
+    "id": "b8",
+    "rule": "js/reflective-xss",
+    "severity": "high",
+    "file": "src/render.mjs",
+    "line": 2,
+    "message": "unescaped user input in HTML",
+    "cwe": "CWE-79"
+  }
+]

@@ -1,0 +1,17 @@
+.env
+__pycache__/
+.pytest_cache/
+.autopatch/
+*.egg-info/
+
+# Method scaffolding kit (separate upstream repo, not part of AutoPatch)
+agent-groundwork/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# Internal working material (not part of the public submission)
+.claude/
+CLAUDE.md
+docs/gtm-plan.md

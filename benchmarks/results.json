@@ -1,0 +1,63 @@
+{
+  "mode": "live",
+  "command-injection": {
+    "verified": 1,
+    "correct": 1,
+    "total": 1,
+    "cases": {
+      "command-injection": "verified-pr"
+    }
+  },
+  "dependency": {
+    "verified": 1,
+    "correct": 1,
+    "total": 1,
+    "cases": {
+      "dependency-flask": "verified-pr"
+    }
+  },
+  "open-redirect": {
+    "verified": 1,
+    "correct": 2,
+    "total": 2,
+    "cases": {
+      "fp-safe-redirect": "false-positive",
+      "open-redirect": "verified-pr"
+    }
+  },
+  "xss": {
+    "verified": 2,
+    "correct": 2,
+    "total": 2,
+    "cases": {
+      "js-xss": "verified-pr",
+      "xss-reflected": "verified-pr"
+    }
+  },
+  "path-traversal": {
+    "verified": 1,
+    "correct": 1,
+    "total": 1,
+    "cases": {
+      "path-traversal": "verified-pr"
+    }
+  },
+  "sql-injection": {
+    "verified": 3,
+    "correct": 3,
+    "total": 3,
+    "cases": {
+      "sqli-format": "verified-pr",
+      "sqli-fstring": "verified-pr",
+      "sqli-percent": "verified-pr"
+    }
+  },
+  "xxe": {
+    "verified": 1,
+    "correct": 1,
+    "total": 1,
+    "cases": {
+      "xxe-elementtree": "verified-pr"
+    }
+  }
+}

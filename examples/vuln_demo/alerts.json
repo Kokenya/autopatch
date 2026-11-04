@@ -1,0 +1,20 @@
+[
+  {
+    "id": "codeql-1",
+    "rule": "py/sql-injection",
+    "severity": "critical",
+    "file": "app.py",
+    "line": 19,
+    "message": "Query built from user-controlled data is passed to cursor.execute without parameterization.",
+    "cwe": "CWE-89"
+  },
+  {
+    "id": "codeql-2",
+    "rule": "py/path-injection",
+    "severity": "high",
+    "file": "app.py",
+    "line": 24,
+    "message": "User-controlled path is joined and opened without confining it to the docs directory (path traversal).",
+    "cwe": "CWE-22"
+  }
+]

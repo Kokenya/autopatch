@@ -1,0 +1,11 @@
+[
+  {
+    "id": "b5",
+    "rule": "py/command-injection",
+    "severity": "critical",
+    "file": "app.py",
+    "line": 5,
+    "message": "os.system with user input",
+    "cwe": "CWE-78"
+  }
+]

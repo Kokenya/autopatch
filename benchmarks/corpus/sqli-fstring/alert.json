@@ -1,0 +1,11 @@
+[
+  {
+    "id": "b1",
+    "rule": "py/sql-injection",
+    "severity": "critical",
+    "file": "app.py",
+    "line": 9,
+    "message": "f-string SQL",
+    "cwe": "CWE-89"
+  }
+]

@@ -1,0 +1,40 @@
+name: "AutoPatch"
+description: "Turn Semgrep alerts into sandbox-verified fix branches and (optionally) Pull Requests"
+inputs:
+  alerts:
+    description: "Path to alerts file (SARIF, Semgrep JSON, or simple JSON). Empty = run Semgrep scan first."
+    required: false
+    default: ""
+  push:
+    description: "Push verified branches and open Pull Requests via gh"
+    required: false
+    default: "false"
+  dry-run:
+    description: "Verify in the sandbox without creating branches"
+    required: false
+    default: "false"
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+    - name: Install AutoPatch
+      shell: bash
+      run: pip install "${{ github.action_path }}[scan]" pytest
+    - name: Scan (when no alerts file given)
+      if: inputs.alerts == ''
+      shell: bash
+      run: autopatch scan --repo . --out autopatch-alerts.json
+    - name: Remediate
+      shell: bash
+      env:
+        ALERTS: ${{ inputs.alerts }}
+        PUSH: ${{ inputs.push }}
+        DRY: ${{ inputs.dry-run }}
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        ARGS="run --repo . --alerts ${ALERTS:-autopatch-alerts.json} --report autopatch-report.json"
+        [ "$PUSH" = "true" ] && ARGS="$ARGS --push"
+        [ "$DRY" = "true" ] && ARGS="$ARGS --dry-run"
+        autopatch $ARGS

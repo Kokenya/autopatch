@@ -1,0 +1,13 @@
+[
+  {
+    "id": "b4",
+    "rule": "CVE-2023-30861",
+    "severity": "high",
+    "file": "requirements.txt",
+    "line": 1,
+    "message": "flask session cookie vulnerability",
+    "cwe": "CWE-539",
+    "package": "flask",
+    "fixed_version": "2.2.5"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "id": "b3",
+    "rule": "py/path-injection",
+    "severity": "high",
+    "file": "app.py",
+    "line": 7,
+    "message": "path traversal",
+    "cwe": "CWE-22"
+  }
+]
